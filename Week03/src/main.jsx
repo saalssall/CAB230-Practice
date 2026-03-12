@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
+import Car from './Vehicle.jsx';
 
-const myelement0 = (
+  const myelement0 = (
   <table>
     <tr>
       <th>Name</th>
@@ -35,28 +36,39 @@ const myElement4 = <h1 className="myclass">Hello World</h1>;
 
 const myElement3 = <input type="text" />;
 
-function Car ()
-{
-  const brand = "Mercedes-Benz";
-  const model = "C-Class";
+function Library(props){
 
   return (
     <>
-    <h2> This is my {brand} {model} 🚗 car! </h2>
-    <p> It is a nice car! </p>
+    <h1> My Library is {props.name} </h1>
+    {/* Component inside another component */}
+    <Book title = "The Great Gatsby" author = "F. Scott Fitzgerald"/>
     </>
-
   )
+
+}
+
+
+function Book(props){
+
+  return (
+    <>
+    <h2> This is the {props.title} book by {props.author} </h2>
+    </>
+  );
 }
 
 createRoot(document.getElementById('root')).render(
   <div>
+    {/* Rendering elements */}
     {myElement2}
     {myelement0}
     {myElement}
     {myElement1}
     {myElement3}
     {myElement4}
-    <Car />
+    <Car/>
+    <Book title="The Great 1984" author="George Orwell"/>
+    <Library name = "Logan North Library"/>
     </div>
-)
+);

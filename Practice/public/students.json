@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "classes": [
+      { "name": "Mathematics", "grade": 92 },
+      { "name": "English", "grade": 88 },
+      { "name": "Science", "grade": 95 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "classes": [
+      { "name": "Mathematics", "grade": 78 },
+      { "name": "English", "grade": 85 },
+      { "name": "Science", "grade": 80 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Charlie Davis",
+    "classes": [
+      { "name": "Mathematics", "grade": 88 },
+      { "name": "English", "grade": 90 },
+      { "name": "Science", "grade": 84 }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Diana Lopez",
+    "classes": [
+      { "name": "Mathematics", "grade": 95 },
+      { "name": "English", "grade": 92 },
+      { "name": "Science", "grade": 97 }
+    ]
+  }
+]

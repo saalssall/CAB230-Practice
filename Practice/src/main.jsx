@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client'
+import { useState } from 'react';
 import Car from './Vehicle.jsx';
+import useFetch from './useFetch.js';
 
   const myelement0 = (
   <table>
@@ -48,6 +50,18 @@ function Library(props){
 
 }
 
+function FavoriteColor(){
+  const [color, setColor] = useState("red");
+  return (
+    <div style={{ color: color, padding: "20px" }}> 
+      <h1> My favorite color is {color}! </h1>
+      <button type = "button" onClick = {() => setColor("blue")}> Blue </button>
+      <button type = "button" onClick = {() => setColor("green")}> Green </button>
+      <button type = "button" onClick = {() => setColor("red")}> Red </button>
+      <button type = "button" onClick = {() => setColor("black")}> Black </button>
+    </div>
+  );
+}
 
 function Book(props){
 
@@ -57,6 +71,45 @@ function Book(props){
     </>
   );
 }
+
+const Home = () => {
+//   const [data, setData] = useState(null);
+
+//   useEffect(() => {
+//     fetch("/todos.json")
+//       .then((res) => res.json())
+//       .then((data) => setData(data));
+//  }, []);
+ const [visible, setVisible] = useState(false);
+  const [data] = useFetch("/students.json");
+
+  return (
+    <div
+      style={{
+        color: "Green",
+        padding: "20px",
+        }}
+    >
+      
+      <button onClick={() => setVisible(!visible)}
+        style = {{
+          backgroundColor: "lightblue",
+          color : "black",
+          border: "none",
+          padding: "10px 20px",
+          cursor: "pointer",
+        }}>
+        {visible ? "Hide Students" : "Show Students"}
+      </button>
+
+      {visible && data &&
+        data.map((item) => {
+          return <p key={item.id}>{item.name}</p>;
+        })}
+    </div>
+  );
+};
+
 
 createRoot(document.getElementById('root')).render(
   <div>
@@ -70,5 +123,7 @@ createRoot(document.getElementById('root')).render(
     <Car/>
     <Book title="The Great 1984" author="George Orwell"/>
     <Library name = "Logan North Library"/>
+    <FavoriteColor/>
+    <Home />
     </div>
 );
